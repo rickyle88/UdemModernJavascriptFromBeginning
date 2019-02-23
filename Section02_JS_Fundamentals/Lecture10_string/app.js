@@ -1,33 +1,66 @@
-const num1 = 100;
-const num2 = 50;
+const firstName = 'William';
+const lastName = 'Johnson';
+const age = 36;
+const str = "hello there my name is Brad";
+const tags = "ab,ds,ew";
+
 let val;
 
-//Simple math with numbers
-val = num1 + num2;
-val = num1 - num2;
-val = num1 * num2;
-val = num1 / num2;
-val = num1 % num2;
+val = firstName + lastName;
 
+//Concatenation
+val = firstName + ' ' + lastName;
 
-//Math object
-val = Math.PI;
-val = Math.E;
-val = Math.round(2.8);
-val = Math.ceil(2.8);
-val = Math.floor(2.8);
-val = Math.sqrt(64);
-val = Math.abs(-3);
-val = Math.pow(8,2);
-val = Math.min(2,4,3,1);
-val = Math.max(2,4,3,1);
-val = Math.random();
+//Appending
+val = 'Brad ';
+val += 'Traversy';
 
-//Random number between 0 and 19
-val = Math.floor(Math.random() * 20 );
+val = 'Hello , my name is ' + firstName + ' and I am ' + age;
 
-//Random number between 1 and 20
-val = Math.floor(Math.random() * 20 + 1);
+//Escaping
+val = "That 's awesome, I can't wait";
+val = 'That \'s awesome, I can\'t wait';
+
+//Length
+val = firstName.length;
+
+//concat()
+val = firstName.concat(' ',lastName);
+
+//Change case
+val = firstName.toUpperCase();
+val = firstName.toLocaleLowerCase();
+
+val = firstName[0];
+
+//indexOf()
+val = firstName.indexOf('l');
+val = firstName.lastIndexOf('l');
+
+//charAt()
+val = firstName.charAt('0');
+val = firstName.charAt(0);
+
+//Get last char
+val = firstName.charAt(firstName.length-1);
+
+//substring
+val = firstName.substring(0,4);
+
+//slice()
+val = firstName.slice(0,4);
+//Start from the end and take 3 char
+val = firstName.slice(-3);
+
+//split() : string to array
+val = str.split(' ');
+val = tags.split(',');
+
+//replace()
+val = str.replace('Brad','Jack');
+
+//includes()
+val = str.includes('hello');
+val = str.includes('fd');
 
 console.log(val);
-
