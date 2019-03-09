@@ -60,6 +60,7 @@ val = tags.split(',');
 val = str.replace('Brad','Jack');
 
 //includes()
+//return true or false
 val = str.includes('hello');
 val = str.includes('fd');
 
