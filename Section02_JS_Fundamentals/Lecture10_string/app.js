@@ -18,6 +18,7 @@ val += 'Traversy';
 val = 'Hello , my name is ' + firstName + ' and I am ' + age;
 
 //Escaping
+// \ backslash
 val = "That 's awesome, I can't wait";
 val = 'That \'s awesome, I can\'t wait';
 
@@ -29,30 +30,34 @@ val = firstName.concat(' ',lastName);
 
 //Change case
 val = firstName.toUpperCase();
-val = firstName.toLocaleLowerCase();
+val = firstName.toLowerCase();
 
+// Taking 0 index of this string
 val = firstName[0];
 
 //indexOf()
-val = firstName.indexOf('l');
-val = firstName.lastIndexOf('l');
+// William
+val = firstName.indexOf('l');       //2
+val = firstName.lastIndexOf('l');   //3
 
 //charAt()
-val = firstName.charAt('0');
-val = firstName.charAt(0);
+val = firstName.charAt('0');        //W
+val = firstName.charAt(0);          //W
 
 //Get last char
 val = firstName.charAt(firstName.length-1);
 
+// William
 //substring
-val = firstName.substring(0,4);
+val = firstName.substring(0,4);     //Will
 
+// Mostly use with array
 //slice()
-val = firstName.slice(0,4);
-//Start from the end and take 3 char
-val = firstName.slice(-3);
+val = firstName.slice(0,4);         //Will
+//Start from the end and take last 3 char
+val = firstName.slice(-3);          //iam
 
-//split() : string to array
+//split() : string to array base on seperator
 val = str.split(' ');
 val = tags.split(',');
 
