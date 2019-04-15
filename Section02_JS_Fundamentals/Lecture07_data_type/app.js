@@ -10,13 +10,16 @@ const age = 45;
 const hasKids = true;
 
 //null
+//type of null is object
 const car = null;
 
 //undefined
 let test;
 
+//ES6
 //symbol
 const sym = Symbol();
+
 
 console.log(typeof name);
 console.log(typeof age);
