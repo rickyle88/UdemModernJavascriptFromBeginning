@@ -12,6 +12,7 @@ const person = {
         return 2017 - this.age;
     }
 
+
 }
 
 let val;

@@ -8,9 +8,11 @@ birthday = new Date('September 10 1981');
 birthday = new Date('9/10/1981');
 
 
-val = today;
+val = today;                    //Mon Apr 15 2019 11:51:57 GMT-0700 (Pacific Daylight Time)
+                                //object
 
 val = today.getMonth();         //January : 0
+val = today.getDate();
 val = today.getDay();           //Sunday: 0, Monday: 1...
 val = today.getFullYear();      //
 val = today.getHours();         //
