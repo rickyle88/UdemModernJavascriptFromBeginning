@@ -1,41 +1,54 @@
-const clearBtn = document.querySelector('.clear-tasks');
-
-const card = document.querySelector('.card');
-
+const form = document.querySelector('form');
+const taskInput = document.getElementById('task');
 const heading = document.querySelector('h5');
 
-// Click
-// clearBtn.addEventListener('click', runEvent);
-// // Double Click
-// clearBtn.addEventListener('dblclick', runEvent);
-// // Mouse down (click and hold)
-// clearBtn.addEventListener('mousedown', runEvent);
-// // Mouse up (click and hold)
-// clearBtn.addEventListener('mouseup', runEvent);
-// // Mouse enter
-// clearBtn.addEventListener('mouseenter', runEvent);
-// card.addEventListener('mouseenter', runEvent);
-// // Mouse leave
-// clearBtn.addEventListener('mouseleave', runEvent);
-// card.addEventListener('mouseleave', runEvent);
-// // Mouse over
-// clearBtn.addEventListener('mouseover', runEvent);
-// card.addEventListener('mouseover', runEvent);
-// // Mouse out
-// clearBtn.addEventListener('mouseout', runEvent);
-// card.addEventListener('mouseout', runEvent);
+const select = document.querySelector('select');
 
+// To clear input box (before or after submitting)
+taskInput.value = '';
 
-// MOUSE MOVE
-card.addEventListener('mousemove', runEvent);
+// // Add event on the form when click Submit button
+// form.addEventListener('submit', runEvent);
 
-// Event Handler
+// keydown
+// taskInput.addEventListener('keydown', runEvent);
+
+// keyup
+// taskInput.addEventListener('keyup', runEvent);
+
+// // keypress
+taskInput.addEventListener('keypress', runEvent);
+
+// Focus (when we click inside input box)
+// taskInput.addEventListener('focus', runEvent);
+
+// Blur (when we click outside input box)
+// taskInput.addEventListener('blur', runEvent);
+
+// Cut text 
+// taskInput.addEventListener('cut', runEvent);
+
+// // Paste text 
+// taskInput.addEventListener('paste', runEvent);
+
+// Input: anything we do will fire up this event
+// taskInput.addEventListener('input', runEvent);
+
+// Change event
+// select.addEventListener('change', runEvent);
+
 function runEvent(e){
     console.log(`EVENT TYPE: ${e.type}`);
 
-    // heading.textContent = `Mouse X: ${e.offsetX} Mouse Y: ${e.offsetY}`;
-    heading.childNodes[0].nodeValue = `Mouse X: ${e.offsetX} Mouse Y: ${e.offsetY}`;
+    // To log everything we type
+    console.log(e.target.value);
 
-    // Auto change backgound color
-    document.body.style.background = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
+    // To log everything in h5 element
+    // Like data binding in Angular
+    heading.innerText = e.target.value;
+
+    // // Get input value
+    // console.log(taskInput.value)
+
+    // e.preventDefault();
 }
