@@ -28,22 +28,44 @@
 // console.log(`From Local Storage: name - ${name} and age - ${age}`);
 
 // ////////////////////////////////////////////
-document.querySelector('form').addEventListener('submit',function(e){
-    // Get value of input box
+
+document.querySelector('form').addEventListener('submit', function(e){
+
+    // Get value from input box
     const task = document.getElementById('task').value;
 
-    // Initalize new variable
+    // Create new array to hold
     let tasks;
+
+    // Condition: 
+    // Check localStorage, if that key 'tasks' not initialzed (===Null), initialize array to hold value
 
     if(localStorage.getItem('tasks') === null){
         tasks = [];
-    }else{
+    }
+    else{
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
+    // Always Insert element to array whene Submit button is clicked
+    // We have some data and want to add to tasks ARRAY
     tasks.push(task);
 
+    // 3) Convert from JS object - > JSON string
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
+    console.log('Co don');
+
+    // 
     e.preventDefault();
+});
+
+
+
+// Loop thru task array
+// const tasks = localStorage.getItem('tasks');
+const tasks = JSON.parse( localStorage.getItem('tasks'));
+
+tasks.forEach(function(task){
+    console.log(task);
 });
