@@ -160,16 +160,19 @@ function removeTask(e) {
         // console.log(e.target);
         // Add confirm 
         if (confirm('Are you sure? ')) {
-            e.target.parentElement.parentElement.remove();
+            
 
+            const index = Array.prototype.slice.call(e.target.parentElement.parentElement.parentElement.children).indexOf(e.target.parentElement.parentElement);
             // Remove from local Storage also
-           removeFromLocalStorage(e.target.parentElement.parentElement);
+           removeFromLocalStorage(e.target.parentElement.parentElement, index);
+
+           e.target.parentElement.parentElement.remove();
         }
     }
 
 }
 
-function removeFromLocalStorage(taskItem){
+function removeFromLocalStorage(taskItem, i){
     // li element
     // console.log(taskItem);
     let tasks;
@@ -181,7 +184,7 @@ function removeFromLocalStorage(taskItem){
     }
 
     tasks.forEach(function(task, index){
-        if(taskItem.textContent === task){
+        if(taskItem.textContent === task && i === index){
             // Remove element
             tasks.splice(index, 1);
         }
