@@ -202,7 +202,7 @@ function clearTask(e) {
     // Way 1
     // taskListUL.innerHTML = '';
 
-    // Way 2: removeChild vs innerHTML
+    // Way 2: removeChild vs innerHTML => remove from the DOM
     while (taskListUL.firstChild) {
         taskListUL.removeChild(taskListUL.firstChild);
     }
