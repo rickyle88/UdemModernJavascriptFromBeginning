@@ -213,7 +213,9 @@ function clearTask(e) {
 
 // Clear tasks from local storage
 function clearFromLocalStorage(){
-    localStorage.clear();
+    // Clear `tasks` key from local storage intead of delete all 
+    localStorage.removeItem('tasks')
+    // localStorage.clear();
 }
 //////////////////////////////////////////////////////////////////
 // Filter task
