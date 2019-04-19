@@ -160,19 +160,28 @@ function removeTask(e) {
         // console.log(e.target);
         // Add confirm 
         if (confirm('Are you sure? ')) {
-            
+
+
+            //             Array.prototype.slice.call(arguments) is the old-fashioned way to convert an arguments into an array.
+
+            // In ECMAScript 2015, you can use Array.from or the spread operator:
+
+            // let args = Array.from(arguments);
+
+            // let args = [...arguments];
+
 
             const index = Array.prototype.slice.call(e.target.parentElement.parentElement.parentElement.children).indexOf(e.target.parentElement.parentElement);
             // Remove from local Storage also
-           removeFromLocalStorage(e.target.parentElement.parentElement, index);
+            removeFromLocalStorage(e.target.parentElement.parentElement, index);
 
-           e.target.parentElement.parentElement.remove();
+            e.target.parentElement.parentElement.remove();
         }
     }
 
 }
 
-function removeFromLocalStorage(taskItem, i){
+function removeFromLocalStorage(taskItem, i) {
     // li element
     // console.log(taskItem);
     let tasks;
@@ -183,8 +192,8 @@ function removeFromLocalStorage(taskItem, i){
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
-    tasks.forEach(function(task, index){
-        if(taskItem.textContent === task && i === index){
+    tasks.forEach(function (task, index) {
+        if (taskItem.textContent === task && i === index) {
             // Remove element
             tasks.splice(index, 1);
         }
@@ -215,7 +224,7 @@ function clearTask(e) {
 }
 
 // Clear tasks from local storage
-function clearFromLocalStorage(){
+function clearFromLocalStorage() {
     // Clear `tasks` key from local storage intead of delete all 
     localStorage.removeItem('tasks')
     // localStorage.clear();
