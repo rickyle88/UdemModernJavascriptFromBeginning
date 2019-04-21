@@ -172,10 +172,14 @@ function removeTask(e) {
 
 
             const index = Array.prototype.slice.call(e.target.parentElement.parentElement.parentElement.children).indexOf(e.target.parentElement.parentElement);
+
+            // Remove from UL
+            e.target.parentElement.parentElement.remove();
+
             // Remove from local Storage also
             removeFromLocalStorage(e.target.parentElement.parentElement, index);
 
-            e.target.parentElement.parentElement.remove();
+            
         }
     }
 
