@@ -85,6 +85,7 @@ function addTask(e) {
     // If input is blank, alert user
     if (taskInput.value === '') {
         alert('Please add a task');
+        return false;
     }
 
     //     <li class="collection-item">
