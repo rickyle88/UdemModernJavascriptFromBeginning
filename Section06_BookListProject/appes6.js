@@ -1,5 +1,7 @@
-class Book {
+// ES6
 
+//  The purpose of Book constructor is to handle books item and not to handle UI.
+class Book {
     constructor(title, author, isbn) {
         this.title = title;
         this.author = author;
@@ -7,6 +9,7 @@ class Book {
     }
 }
 
+//////////////////////////////////////////////////////
 class UI {
     addBookToList(book) {
         //              <tr>
@@ -28,12 +31,10 @@ class UI {
                         <td>${book.author}</td>
                         <td>${book.isbn}</td>
                         <td><a href="#" class="delete">X</a></td>
-    `;
+                        `;
 
         list.appendChild(row);
     }
-
-
 
     showAlert(message, className) {
         // Only show message 1 time
@@ -65,6 +66,15 @@ class UI {
             }, 3000);
         }
     }
+
+    // <tr>
+    //                     <td>dSdfs</td>
+    //                     <td>FWE</td>
+    //                     <td>DFRR</td>
+    //                     <td>
+    //                       <a href="#" class="delete">X</a>
+    //                      </td>
+    // </tr>
 
     deleteBook(target) {
         if (target.className === 'delete') {
@@ -120,7 +130,7 @@ class Store {
 
     // Add book to local Storage
     static addBook(book) {
-        // const books = this.getBooks();
+        // const books = Store.getBooks();
         const books = this.getBooks();
 
         books.push(book);
@@ -192,8 +202,6 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 
     }
 
-
-
     e.preventDefault();
 });
 
@@ -219,8 +227,6 @@ document.getElementById('book-list').addEventListener('click', function (e) {
 
         /////////////////////////////////////
 
-
-
         // <tr>
         //     <td>${book.title}</td>
         //     <td>${book.author}</td>
@@ -244,9 +250,7 @@ document.getElementById('book-list').addEventListener('click', function (e) {
         // Delete from Local Storage
         Store.removeBook(isbnToBeRemoved);
 
-
     }
-
 
     ///////////////////////////////////////////
 
