@@ -7,9 +7,7 @@ function getJokes(e){
 
     console.log("Value of jokes : " + typeof numberOfJoke);
 
-    if(numberOfJoke === ''){
-        numberOfJoke = '1';
-    }
+    
 
     // Open
     xhr.open('GET',`http://api.icndb.com/jokes/random/${numberOfJoke}`, true);
