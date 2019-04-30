@@ -1,63 +1,45 @@
 // To test easyhttp.js library
 
-const http = new easyHTTP();
+const http = new EasyHTTP();
 
-// Get Posts
-// http.get('https://jsonplaceholder.typicode.com/posts', function (err, posts) {
+// Get Users
 
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log(posts);
-//     }
+/*
+const users = http.get('https://jsonplaceholder.typicode.com/users');
 
-// });
+console.log(users);
 
-// Get single Post
-// http.get('https://jsonplaceholder.typicode.com/posts/1', function (err, post) {
+=> Return Promise object, but we want to return data inside
 
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log(post);
-//     }
+*/
 
-// });
+http.get('https://jsonplaceholder.typicode.com/users')
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
 
-// Create data
+
+
+// Create user's data
 const data = {
-    title: 'Custom Post',
-    body: 'This is a custom post'
-};
+    name: 'John',
+    username: 'johndoe',
+    email: 'johndoe@gmail.com'
+}
 
-// POST request
-// http.post('https://jsonplaceholder.typicode.com/posts', data, function (err, post) {
+// Create POST request
+http.post('https://jsonplaceholder.typicode.com/users', data)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
 
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log(post);
-//     }
+// 
+console.log("PUT request");
 
-// });
+// Create PUT request
+http.put('https://jsonplaceholder.typicode.com/users/5', data)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
 
-// PUT request
-// http.put('https://jsonplaceholder.typicode.com/posts/5', data, function(err, post){
-//     if(err){
-//         console.log(err);
-//     }else{
-//         console.log(post);
-//     }
-
-// });
-
-// DELETE request
-http.delete('https://jsonplaceholder.typicode.com/posts/1', function (err, posts) {
-
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(posts);
-    }
-
-});
+// Create DELETE request
+http.delete('https://jsonplaceholder.typicode.com/users/2')
+    .then(data => console.log(data))
+    .catch(err => console.log(err));

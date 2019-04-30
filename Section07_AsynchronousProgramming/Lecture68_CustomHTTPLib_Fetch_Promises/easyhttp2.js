@@ -1,91 +1,79 @@
-// Library
-// ES5
+/*
+* Easy HTTP Library
+* Library for making HTTP requests
+*
+* @ersion 2.0
+* @author
+* @license
+*
+*/
 
-function easyHTTP() {
-    this.http = new XMLHttpRequest();
-}
+class EasyHTTP {
 
-// Make an HTTP GET request
-easyHTTP.prototype.get = function (url, callback) {
-    // 1)
-    this.http.open('GET', url, true);
+    // Make an HTTP GET request
+    get(url) {
 
-    // 2)
-    let self = this;
+        return new Promise((resolve, reject) => {
+            fetch(url)
+                .then(res => res.json())
+                .then(data => resolve(data))
+                .catch(err => reject(err));
 
-    this.http.onload = function () {
-        if (self.http.status === 200) {
-            // return self.http.responseText;
-            callback(null, self.http.responseText);
-        } else {
-            callback('Error: ' + self.http.status);
-        }
+        });
     }
 
-    // 3)
-    this.http.send();
-}
+    // Make an HTTP POST request
+    post(url, data) {
 
-// Make an HTTP POST request
-easyHTTP.prototype.post = function (url, data, callback) {
-    // 1)
-    this.http.open('POST', url, true);
-    this.http.setRequestHeader('Content-type', 'application/json');
+        return new Promise((resolve, reject) => {
+            fetch(url, {
+                method: 'POST',
+                headers:{
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(data => resolve(data))
+                .catch(err => reject(err));
 
-
-    // 2)
-    let self = this;
-
-    this.http.onload = function () {
-
-        callback(null, self.http.responseText);
+        });
     }
 
-    // 3)
-    this.http.send(JSON.stringify(data));
-}
+     // Make an HTTP PUT request
+     put(url, data) {
 
-// Make an HTTP PUT request
-easyHTTP.prototype.put = function (url, data, callback) {
-    // 1)
-    this.http.open('PUT', url, true);
-    this.http.setRequestHeader('Content-type', 'application/json');
+        return new Promise((resolve, reject) => {
+            fetch(url, {
+                method: 'PUT',
+                headers:{
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(data => resolve(data))
+                .catch(err => reject(err));
 
-
-    // 2)
-    let self = this;
-
-    this.http.onload = function () {
-
-        callback(null, self.http.responseText);
+        });
     }
 
-    // 3)
-    this.http.send(JSON.stringify(data));
-}
+    // Make an HTTP DELETE request
+    delete(url) {
 
-// Make an HTTP DELETE request - RETURN empty object
-easyHTTP.prototype.delete = function (url, callback) {
-    // 1)
-    this.http.open('DELETE', url, true);
+        return new Promise((resolve, reject) => {
+            fetch(url, {
+                method: 'DELETE',
+                headers:{
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then( () => resolve('User deleted'))
+                .catch(err => reject(err));
 
-    // 2)
-    let self = this;
-
-    this.http.onload = function () {
-        if (self.http.status === 200) {
-            // return self.http.responseText;
-
-            // callback(null, self.http.responseText);
-            // Since reponseTest is just empty object, we can generate a message
-            callback(null, 'Post deleted');
-        } else {
-            callback('Error: ' + self.http.status);
-        }
+        });
     }
 
-    // 3)
-    this.http.send();
+
 }
-
-
