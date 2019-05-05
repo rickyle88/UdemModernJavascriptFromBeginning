@@ -5,6 +5,7 @@
 * @ersion 2.0
 * @author
 * @license
+* ES6
 *
 */
 
@@ -69,7 +70,7 @@ class EasyHTTP {
                 }
             })
                 .then(res => res.json())
-                .then( () => resolve('User deleted'))
+                .then( () => resolve('User deleted' ))
                 .catch(err => reject(err));
 
         });

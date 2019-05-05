@@ -31,8 +31,10 @@ http.post('https://jsonplaceholder.typicode.com/users', data)
     .then(data => console.log(data))
     .catch(err => console.log(err));
 
-// 
-console.log("PUT request");
+
+
+// // 
+// console.log("PUT request");
 
 // Create PUT request
 http.put('https://jsonplaceholder.typicode.com/users/5', data)
